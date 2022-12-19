@@ -2,6 +2,13 @@
 
 This is a simple Discord OAuth2 based application built for CloudFlare Workers.
 
+When a user authenticates with this application, the application will DM you with a 'contact request'.
+You are then able to accept the request (Creating a group DM with you and the user), deny it (allowing them to resubmit) or ban the user from being able to make requests.
+This application will only allow one request per user per week, meaning users are not able to spam you with requests provided you do not deny them.
+Additionally, users who do not have MFA or a verified email address on their Discord account will not be able to generate a request.
+Discord OAuth2 URLs are intimidating, you should make users aware of what the OAuth2 flow is for before prompting them to execute it.
+All data on a user collected by this application will destruct when the relevant OAuth2 bearer token does. It is not reccomended you change this behaviour.
+
 ## Setup Guide
 
 Before starting, you will need the following:
@@ -51,5 +58,6 @@ DM_CHANNEL = "" #The ID you just obtained
 ```
  15. Now, run `npm install` in your project's directory (This will install any dependencies)
  16. Then, run `wrangler publish` to push your application into production
+ 17. Finally, you should authenticate with the bot so your own OAuth2 data can be saved
 
 Now, anyone that navigates to your worker's URL will be directed to the correct OAuth2 URL and generate a contact request.
