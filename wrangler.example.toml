@@ -1,0 +1,20 @@
+name = "contact"
+main = "src/index.js"
+compatibility_date = "2022-12-18"
+node_compat = true
+kv_namespaces = [
+  { binding = "USERS", id = "" }
+]
+
+
+[vars]
+PUBLIC_KEY = ""
+CLIENT_SECRET = ""
+APP_ID = ""
+OAUTH_URL = ""
+FAIL_URL = ""
+DM_CHANNEL = ""
+AUTH_TOKEN = ""
+SUCCESS_URL = ""
+OWNER_ID = ""
+REDIRECT_URL = ""
